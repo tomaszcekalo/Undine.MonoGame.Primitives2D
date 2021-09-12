@@ -8,16 +8,16 @@
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
     <RepositoryType>git</RepositoryType>
     <PackageTags>ecs, reactive, patterns, ioc, view-separation, xna, game-development, unity, monogame, gamedev, games, ecs, c-sharp, entity-component, entity-framework, entity, entity-component-system, tdd, test-driven-development, performance, design-pattern, paradigmshift, paradigm, design-patterns, game, game-engine, scripts, scripting, data-driven, data, driven, min, minECS</PackageTags>
-    <AssemblyVersion>0.0.1.0</AssemblyVersion>
-    <FileVersion>0.0.1.0</FileVersion>
-    <Version>0.0.1</Version>
+    <AssemblyVersion>0.0.2.0</AssemblyVersion>
+    <FileVersion>0.0.2.0</FileVersion>
+    <Version>0.0.2</Version>
     <PackageProjectUrl>https://github.com/tomaszcekalo/Undine.MonoGame.Primitives2D</PackageProjectUrl>
     <RepositoryUrl>https://github.com/tomaszcekalo/Undine.MonoGame.Primitives2D</RepositoryUrl>
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="MonoGame.Primitives2D" Version="1.1.1" />
-    <PackageReference Include="Undine.MonoGame" Version="0.0.1" />
+    <PackageReference Include="MonoGame.Framework.DesktopGL" Version="3.8.0.1641" />
+    <PackageReference Include="Undine.MonoGame" Version="0.0.2" />
   </ItemGroup>
 
 </Project>
