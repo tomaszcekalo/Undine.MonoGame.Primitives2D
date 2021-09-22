@@ -1,21 +1,20 @@
-﻿using System;
-using System.Collections.Generic;
-using Microsoft.Xna.Framework;
+﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using System;
+using System.Collections.Generic;
 
 namespace MonoGame
 {
     public static class Primitives2D
     {
-
         #region Private Members
 
         private static readonly Dictionary<String, List<Vector2>> circleCache = new Dictionary<string, List<Vector2>>();
+
         //private static readonly Dictionary<String, List<Vector2>> arcCache = new Dictionary<string, List<Vector2>>();
         private static Texture2D pixel;
 
-        #endregion
-
+        #endregion Private Members
 
         #region Private Methods
 
@@ -24,7 +23,6 @@ namespace MonoGame
             pixel = new Texture2D(spriteBatch.GraphicsDevice, 1, 1, false, SurfaceFormat.Color);
             pixel.SetData(new[] { Color.White });
         }
-
 
         /// <summary>
         /// Draws a list of connecting points
@@ -44,7 +42,6 @@ namespace MonoGame
                 DrawLine(spriteBatch, points[i - 1] + position, points[i] + position, color, thickness);
             }
         }
-
 
         /// <summary>
         /// Creates a list of vectors that represents a circle
@@ -79,7 +76,6 @@ namespace MonoGame
 
             return vectors;
         }
-
 
         /// <summary>
         /// Creates a list of vectors that represents an arc
@@ -119,8 +115,7 @@ namespace MonoGame
             return points;
         }
 
-        #endregion
-
+        #endregion Private Methods
 
         #region FillRectangle
 
@@ -141,7 +136,6 @@ namespace MonoGame
             spriteBatch.Draw(pixel, rect, color);
         }
 
-
         /// <summary>
         /// Draws a filled rectangle
         /// </summary>
@@ -159,7 +153,6 @@ namespace MonoGame
             spriteBatch.Draw(pixel, rect, null, color, angle, Vector2.Zero, SpriteEffects.None, 0);
         }
 
-
         /// <summary>
         /// Draws a filled rectangle
         /// </summary>
@@ -171,7 +164,6 @@ namespace MonoGame
         {
             FillRectangle(spriteBatch, location, size, color, 0.0f);
         }
-
 
         /// <summary>
         /// Draws a filled rectangle
@@ -200,7 +192,6 @@ namespace MonoGame
                              0);
         }
 
-
         /// <summary>
         /// Draws a filled rectangle
         /// </summary>
@@ -214,7 +205,6 @@ namespace MonoGame
         {
             FillRectangle(spriteBatch, new Vector2(x, y), new Vector2(w, h), color, 0.0f);
         }
-
 
         /// <summary>
         /// Draws a filled rectangle
@@ -231,8 +221,7 @@ namespace MonoGame
             FillRectangle(spriteBatch, new Vector2(x, y), new Vector2(w, h), color, angle);
         }
 
-        #endregion
-
+        #endregion FillRectangle
 
         #region DrawRectangle
 
@@ -247,7 +236,6 @@ namespace MonoGame
             DrawRectangle(spriteBatch, rect, color, 1.0f);
         }
 
-
         /// <summary>
         /// Draws a rectangle with the thickness provided
         /// </summary>
@@ -257,7 +245,6 @@ namespace MonoGame
         /// <param name="thickness">The thickness of the lines</param>
         public static void DrawRectangle(this SpriteBatch spriteBatch, Rectangle rect, Color color, float thickness)
         {
-
             // TODO: Handle rotations
             // TODO: Figure out the pattern for the offsets required and then handle it in the line instead of here
 
@@ -266,7 +253,6 @@ namespace MonoGame
             DrawLine(spriteBatch, new Vector2(rect.X, rect.Bottom), new Vector2(rect.Right, rect.Bottom), color, thickness); // bottom
             DrawLine(spriteBatch, new Vector2(rect.Right + 1f, rect.Y), new Vector2(rect.Right + 1f, rect.Bottom + thickness), color, thickness); // right
         }
-
 
         /// <summary>
         /// Draws a rectangle with the thickness provided
@@ -279,7 +265,6 @@ namespace MonoGame
         {
             DrawRectangle(spriteBatch, new Rectangle((int)location.X, (int)location.Y, (int)size.X, (int)size.Y), color, 1.0f);
         }
-
 
         /// <summary>
         /// Draws a rectangle with the thickness provided
@@ -294,8 +279,7 @@ namespace MonoGame
             DrawRectangle(spriteBatch, new Rectangle((int)location.X, (int)location.Y, (int)size.X, (int)size.Y), color, thickness);
         }
 
-        #endregion
-
+        #endregion DrawRectangle
 
         #region DrawLine
 
@@ -313,7 +297,6 @@ namespace MonoGame
             DrawLine(spriteBatch, new Vector2(x1, y1), new Vector2(x2, y2), color, 1.0f);
         }
 
-
         /// <summary>
         /// Draws a line from point1 to point2 with an offset
         /// </summary>
@@ -329,7 +312,6 @@ namespace MonoGame
             DrawLine(spriteBatch, new Vector2(x1, y1), new Vector2(x2, y2), color, thickness);
         }
 
-
         /// <summary>
         /// Draws a line from point1 to point2 with an offset
         /// </summary>
@@ -341,7 +323,6 @@ namespace MonoGame
         {
             DrawLine(spriteBatch, point1, point2, color, 1.0f);
         }
-
 
         /// <summary>
         /// Draws a line from point1 to point2 with an offset
@@ -362,7 +343,6 @@ namespace MonoGame
             DrawLine(spriteBatch, point1, distance, angle, color, thickness);
         }
 
-
         /// <summary>
         /// Draws a line from point1 to point2 with an offset
         /// </summary>
@@ -375,7 +355,6 @@ namespace MonoGame
         {
             DrawLine(spriteBatch, point, length, angle, color, 1.0f);
         }
-
 
         /// <summary>
         /// Draws a line from point1 to point2 with an offset
@@ -405,8 +384,7 @@ namespace MonoGame
                              0);
         }
 
-        #endregion
-
+        #endregion DrawLine
 
         #region PutPixel
 
@@ -414,7 +392,6 @@ namespace MonoGame
         {
             PutPixel(spriteBatch, new Vector2(x, y), color);
         }
-
 
         public static void PutPixel(this SpriteBatch spriteBatch, Vector2 position, Color color)
         {
@@ -426,8 +403,7 @@ namespace MonoGame
             spriteBatch.Draw(pixel, position, color);
         }
 
-        #endregion
-
+        #endregion PutPixel
 
         #region DrawCircle
 
@@ -444,7 +420,6 @@ namespace MonoGame
             DrawPoints(spriteBatch, center, CreateCircle(radius, sides), color, 1.0f);
         }
 
-
         /// <summary>
         /// Draw a circle
         /// </summary>
@@ -459,7 +434,6 @@ namespace MonoGame
             DrawPoints(spriteBatch, center, CreateCircle(radius, sides), color, thickness);
         }
 
-
         /// <summary>
         /// Draw a circle
         /// </summary>
@@ -473,7 +447,6 @@ namespace MonoGame
         {
             DrawPoints(spriteBatch, new Vector2(x, y), CreateCircle(radius, sides), color, 1.0f);
         }
-
 
         /// <summary>
         /// Draw a circle
@@ -490,8 +463,7 @@ namespace MonoGame
             DrawPoints(spriteBatch, new Vector2(x, y), CreateCircle(radius, sides), color, thickness);
         }
 
-        #endregion
-
+        #endregion DrawCircle
 
         #region DrawArc
 
@@ -509,7 +481,6 @@ namespace MonoGame
         {
             DrawArc(spriteBatch, center, radius, sides, startingAngle, radians, color, 1.0f);
         }
-
 
         /// <summary>
         /// Draw a arc
@@ -529,8 +500,6 @@ namespace MonoGame
             DrawPoints(spriteBatch, center, arc, color, thickness);
         }
 
-        #endregion
-
-
+        #endregion DrawArc
     }
 }
