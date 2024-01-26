@@ -8,7 +8,7 @@ namespace Undine.MonoGame.Primitives2D
 {
     public class Primitives2DSystem : UnifiedSystem<Primitives2DComponent, TransformComponent>
     {
-        private SpriteBatch SpriteBatch { get; set; }
+        public SpriteBatch SpriteBatch { get; set; }
         private Dictionary<Primitives2DDrawType, Action<Primitives2DComponent, TransformComponent>> _primitives2DDrawType;
 
         public Primitives2DSystem()
